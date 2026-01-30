@@ -1,10 +1,18 @@
-# PDFs
+# PDFs (too large for git)
 pdfs/
 
 # Python
 __pycache__/
 *.py[cod]
 *.pyc
+*.pyo
+.Python
+*.so
+
+# Virtual environments
+venv/
+env/
+.env
 
 # Temp files
 *.tmp
@@ -18,18 +26,19 @@ Thumbs.db
 # IDE
 .vscode/
 .idea/
+*.swp
 
 # Local config
 .agent/
 CLAUDE.md
 
-# Intermediate files
-*_removed.csv
-*_clean.csv
-*_final.csv
-iclr2026_aidd_papers.csv
+# Intermediate files (keep only refined version)
+data/iclr2026_all_papers.csv
+data/iclr2026_aidd_papers.csv
+iclr2026_*.csv
+!data/iclr2026_aidd_papers_refined.csv
 iclr2026_summary.json
-filter_*.py
-generate_*.py
+
+# Draft files
 微信推文*.md
 ICLR2026_AIDD_Selected.md

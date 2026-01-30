@@ -2,6 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Papers](https://img.shields.io/badge/Papers-132-blue.svg)](#论文列表)
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
 
 > 🔬 从 ICLR 2026 的 5356 篇接收论文中，精选出 **132 篇** AI 辅助药物发现 (AIDD) 领域的核心论文。
 
@@ -18,6 +19,21 @@ ICLR 2026 共接收 5356 篇论文，信息量庞大。本项目旨在为 AIDD �
 - 药物发现应用
 - 生物序列建模（RNA/DNA/抗体）
 
+## 🗂️ 项目结构
+
+```
+ICLR2026-AIDD/
+├── README.md                 # 项目说明
+├── requirements.txt          # Python 依赖
+├── LICENSE                   # MIT 许可证
+├── data/
+│   └── iclr2026_aidd_papers_refined.csv  # 132篇精选论文
+└── scripts/
+    ├── fetch_papers.py       # 获取论文元数据
+    ├── filter_papers.py      # 关键词筛选
+    └── download_pdfs.py      # 批量下载 PDF
+```
+
 ## 📈 论文分布
 
 | 主题 | 数量 | 代表性工作 |
@@ -31,16 +47,47 @@ ICLR 2026 共接收 5356 篇论文，信息量庞大。本项目旨在为 AIDD �
 
 ## 🔥 技术趋势
 
-从这 132 篇论文中观察到的主要趋势：
-
-1. **扩散模型 (Diffusion Models)**：约 40% 的论文采用，覆盖分子生成、蛋白质设计等任务
+1. **扩散模型 (Diffusion Models)**：约 40% 的论文采用
 2. **Flow Matching**：作为扩散模型的替代方案逐渐兴起
 3. **全原子建模 (All-Atom)**：多篇论文强调原子级精度
 4. **可合成性约束**：生成分子的实际可合成性成为研究热点
 
+## 🚀 快速开始
+
+### 安装依赖
+
+```bash
+git clone https://github.com/minddance-x/ICLR2026-AIDD.git
+cd ICLR2026-AIDD
+pip install -r requirements.txt
+```
+
+### 使用脚本
+
+```bash
+# 1. 获取全部论文元数据（需要网络连接）
+python scripts/fetch_papers.py
+
+# 2. 筛选 AIDD 相关论文
+python scripts/filter_papers.py
+
+# 3. 下载论文 PDF（可选）
+python scripts/download_pdfs.py
+```
+
+### 直接使用精选列表
+
+如果只需要论文列表，无需运行脚本：
+
+```python
+import pandas as pd
+df = pd.read_csv('data/iclr2026_aidd_papers_refined.csv')
+print(f"共 {len(df)} 篇论文")
+```
+
 ## 📝 论文列表
 
-完整论文列表见 [`iclr2026_aidd_papers_refined.csv`](./iclr2026_aidd_papers_refined.csv)
+完整论文列表见 [`data/iclr2026_aidd_papers_refined.csv`](./data/iclr2026_aidd_papers_refined.csv)
 
 每篇论文包含以下字段：
 - `title`: 论文标题
@@ -48,47 +95,35 @@ ICLR 2026 共接收 5356 篇论文，信息量庞大。本项目旨在为 AIDD �
 - `abstract`: 摘要
 - `keywords`: 关键词
 - `pdf_link`: PDF 下载链接
-- `venue`: 会议信息
 
-### Top 10 论文预览
+### Top 10 论文
 
 | 论文标题 | PDF |
 |---------|-----|
-| h-MINT: Modeling Pocket-Ligand Binding with Hierarchical Molecular Interaction Network | [PDF](https://openreview.net/pdf?id=ajywV0kKXk) |
-| SigmaDock: Untwisting Molecular Docking with Fragment-Based SE(3) Diffusion | [PDF](https://openreview.net/pdf?id=Vgm77U4ojX) |
-| ATOM: A Pretrained Neural Operator for Multitask Molecular Dynamics | [PDF](https://openreview.net/pdf?id=e9cV4xSjbR) |
-| FragFM: Hierarchical Framework for Efficient Molecule Generation | [PDF](https://openreview.net/pdf?id=tr6vRn2aPg) |
-| PoseX: AI Defeats Physics-based Methods on Protein Ligand Cross-Docking | [PDF](https://openreview.net/pdf?id=qqzxKudD4T) |
-| Pallatom-Ligand: an All-Atom Diffusion Model for Designing Ligand-Binding Proteins | [PDF](https://openreview.net/pdf?id=uMD75SDTTA) |
-| BioMD: All-atom Generative Model for Biomolecular Dynamics Simulation | [PDF](https://openreview.net/pdf?id=LQDeJk6NOr) |
-| SimpleFold: Folding Proteins is Simpler than You Think | [PDF](https://openreview.net/pdf?id=FileqNzZzn) |
-| SYNC: Measuring and Advancing Synthesizability in Structure-Based Drug Design | [PDF](https://openreview.net/pdf?id=y1tPw4Uuzg) |
-| DrugTrail: Explainable Drug Discovery via Structured Reasoning | [PDF](https://openreview.net/pdf?id=MMLAvR1juf) |
-
-## 🚀 使用方法
-
-```bash
-# 克隆仓库
-git clone https://github.com/minddance-x/ICLR2026-AIDD.git
-
-# 查看论文列表
-cd ICLR2026-AIDD
-cat iclr2026_aidd_papers_refined.csv
-```
+| h-MINT: Modeling Pocket-Ligand Binding | [PDF](https://openreview.net/pdf?id=ajywV0kKXk) |
+| SigmaDock: Fragment-Based SE(3) Diffusion Docking | [PDF](https://openreview.net/pdf?id=Vgm77U4ojX) |
+| ATOM: Pretrained Neural Operator for Molecular Dynamics | [PDF](https://openreview.net/pdf?id=e9cV4xSjbR) |
+| FragFM: Fragment-Level Discrete Flow Matching | [PDF](https://openreview.net/pdf?id=tr6vRn2aPg) |
+| PoseX: AI for Protein Ligand Cross-Docking | [PDF](https://openreview.net/pdf?id=qqzxKudD4T) |
+| Pallatom-Ligand: All-Atom Diffusion for Ligand-Binding Proteins | [PDF](https://openreview.net/pdf?id=uMD75SDTTA) |
+| BioMD: All-atom Biomolecular Dynamics Simulation | [PDF](https://openreview.net/pdf?id=LQDeJk6NOr) |
+| SimpleFold: Simpler Protein Folding | [PDF](https://openreview.net/pdf?id=FileqNzZzn) |
+| SYNC: Synthesizability in Structure-Based Drug Design | [PDF](https://openreview.net/pdf?id=y1tPw4Uuzg) |
+| DrugTrail: Explainable Drug Discovery | [PDF](https://openreview.net/pdf?id=MMLAvR1juf) |
 
 ## 🛠️ 筛选方法
 
-我们采用三层筛选策略：
+三层筛选策略：
 
-1. **关键词初筛**：基于 40+ 个 AIDD 核心关键词匹配标题、摘要和关键词
-2. **噪声去除**：排除视频生成、图像编辑等无关领域的误匹配论文
-3. **人工校验**：逐一检查边缘案例，剔除非 AIDD 核心论文
+1. **关键词初筛**：基于 40+ 个 AIDD 核心关键词匹配
+2. **噪声去除**：排除视频生成、图像编辑等无关领域
+3. **人工校验**：逐一检查边缘案例
 
-筛选流程：5356 → 538 → 210 → **132**
+筛选流程：**5356 → 538 → 210 → 132**
 
 ## 📖 引用
 
-如果本项目对您有帮助，欢迎 Star ⭐ 和引用：
+如果本项目对您有帮助，欢迎 Star ⭐
 
 ```bibtex
 @misc{iclr2026-aidd,
