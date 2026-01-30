@@ -28,11 +28,38 @@ ICLR2026-AIDD/
 ├── LICENSE                   # MIT 许可证
 ├── data/
 │   └── iclr2026_aidd_papers_refined.csv  # 132篇精选论文
-└── scripts/
-    ├── fetch_papers.py       # 获取论文元数据
-    ├── filter_papers.py      # 关键词筛选
-    └── download_pdfs.py      # 批量下载 PDF
+├── scripts/
+│   ├── fetch_papers.py       # 获取论文元数据
+│   ├── filter_papers.py      # 关键词筛选
+│   └── download_pdfs.py      # 批量下载 PDF
+└── docs/
+    └── notebooklm_guide.md   # NotebookLM 使用指南
 ```
+
+## 🤖 使用 NotebookLM 生成综述
+
+本项目的核心目标是将筛选后的论文导入 **Google NotebookLM**，让 AI 帮你快速生成领域综述。
+
+### 快速开始
+
+1. 下载论文 PDF（运行 `python scripts/download_pdfs.py`）
+2. 访问 [Google NotebookLM](https://notebooklm.google.com/)
+3. 创建新笔记本，上传 PDF 文件
+4. 使用 [`docs/notebooklm_guide.md`](./docs/notebooklm_guide.md) 中的提示词进行提问
+
+### 推荐提问流程
+
+```
+第一步：总体概览 → 了解主要研究方向
+第二步：分主题分析 → 深入各子领域
+第三步：技术对比 → 横向比较方法论
+第四步：数据集基准 → 了解评测标准
+第五步：未来展望 → 把握研究趋势
+第六步：生成综述 → 输出完整报告
+```
+
+详细提示词模板见 👉 [NotebookLM 使用指南](./docs/notebooklm_guide.md)
+
 
 ## 📈 论文分布
 
