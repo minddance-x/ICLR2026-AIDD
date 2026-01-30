@@ -1,0 +1,35 @@
+# PDFs
+pdfs/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Temp files
+*.tmp
+*.log
+temp_*.txt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Local config
+.agent/
+CLAUDE.md
+
+# Intermediate files
+*_removed.csv
+*_clean.csv
+*_final.csv
+iclr2026_aidd_papers.csv
+iclr2026_summary.json
+filter_*.py
+generate_*.py
+微信推文*.md
+ICLR2026_AIDD_Selected.md
